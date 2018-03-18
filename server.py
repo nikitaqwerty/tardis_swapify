@@ -179,9 +179,11 @@ def get_segmask(bbox,img):
 
 def process_img(img):
     detected = detector.detect_faces(img)
-    bbox = detected[0]['box']
+    bbox = np.array(detected[0]['box'])
+    bbox[bbox < 0] = 0
     print(img.shape)
     print(bbox)
+    bbox = bbox.tolist()
     landmarks = get_landmarks(bbox,img)
     seg_mask = get_segmask(bbox,img)
     
