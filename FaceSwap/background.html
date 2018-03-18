@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html> 
+  <head>  
+  <script> 
+  const API_KEY = 'SOME_KEY';
+  
+  /**
+   * Use HTML5 Canvas to get the image data
+   * @param {HTMLImageElement} img An Image Tag
+   */
+  function getBase64Image(img) {
+    var canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    var dataURL = canvas.toDataURL('image/png');
+    return dataURL.replace(/data:image\/png;base64,/, '');
+ }
+  /**
+   * Quick way to url encode a string.
+   */
+  function encode_utf8(s) {
+    return unescape(encodeURIComponent(s));
+  }
+  /**
+   * BrowserAction click.
+   */
+  chrome.browserAction.onClicked.addListener(function(tab) {  
+    // Store the local image in a buffer so we can draw it to the canvas,
+    // and have some kind of preloader to know when it has done loading.
+    var image_buffer = document.createElement('img');
+    image_buffer.src = chrome.extension.getURL('uploader.png');
+    image_buffer.onload = function() {
+      // Do an ASYNC request to send the POST data.
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'http://api.imgur.com/2/upload.json?key=' + API_KEY, true); 
+      xhr.setRequestHeader('Cache-Control', 'no-cache');
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          var response = JSON.parse(xhr.response);
+          
+          // Check for error.
+          if (response.error) {
+            alert('Error: ' + response.error.message);
+            return;
+          }
+          
+          // Retrieve the image url.
+          alert('Image URL: ' + response.upload.links.original);
+        }
+      };
+      
+      // Get the base64 image using HTML5 Canvas.
+      var image64 = getBase64Image(image_buffer);
+      
+      // Properly escape the contents of the image. And post it.
+      var post_data =  encode_utf8(image64);
+      xhr.send(post_data); 	
+    };
+    
+  }); 
+  </script> 
+  </head> 
+</html> 

@@ -1,0 +1,708 @@
+/*
+    Created on : Jan 23, 2017, 12:12:06 PM
+    Author     : energetiks
+*/
+body {
+  font-family: "PT Sans", sans-serif;
+  padding: 0;
+  margin:0;
+  height:100%;
+}
+
+a {
+  color: #2f889a;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*//////////////*/
+/*BUTTON SECTION*/
+/*//////////////*/
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.button-faceswap {
+    -webkit-appearance: none;
+    letter-spacing: 0.08em;
+    padding: 0.8em 1.2em;
+    border: none;
+    outline: none;
+    color: white;
+    text-transform: uppercase;
+    font-family: Roboto;
+    font-weight: bold;
+    background: #0067a7;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.button-faceswap span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-faceswap span:after {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-faceswap:hover span {
+  padding-right: 25px;
+}
+
+.button-faceswap:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#next span:after{
+    content: '\21D2'
+}
+
+#previous span:before{
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
+    content: '\21D0'
+}
+
+.button-faceswap:active {
+  box-shadow: 0 3px #999;
+  transform: translateY(3px);
+}
+
+
+
+
+
+/*/////////////////*/
+/*CONTAINER SECTION(login and registration)*/
+/*/////////////////*/
+.container {
+    border: 1px solid #333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 1100px;
+    background: #FFF;
+    margin: 7em auto;
+    position: absolute;
+    left: 0; right: 0;
+    cursor: auto;
+    border-radius: 0.25em;
+    font-size: 14px;
+    font-size: 0.875rem;
+}
+
+.container  .cd-form input::-ms-clear, textarea::-ms-clear {
+  display: none;
+}
+
+
+.cd-form {
+  padding: 1.4em;
+}
+.cd-form .fieldset {
+  position: relative;
+  margin: 1.4em 0;
+}
+.cd-form .fieldset:first-child {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.cd-form .fieldset:last-child {
+    margin-bottom: 0;
+}
+.cd-form label {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+#cd-registration .cd-form label {
+  font-size: 20px;
+  font-size: 0.975rem;
+  margin: 10px 0px 10px 0px;
+}
+.cd-form label.image-replace {
+  /* replace text with an icon */
+  display: inline-block;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  height: 20px;
+  width: 20px;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  color: transparent;
+  text-shadow: none;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+}
+.cd-form label.cd-login{
+  background-image: url("../images/cd-icon-login.svg");
+}
+.cd-form label.cd-password {
+  background-image: url("../images/cd-icon-password.svg");
+}
+.cd-form input {
+  margin: 5px;
+  padding: 0;
+  border-radius: 0.25em;
+  font-size: 14px;
+  font-size: 0.875rem;
+  padding: 7px 5px 7px 5px;
+
+}
+.cd-form input.full-width {
+  width: 100%;
+}
+#cd-login .cd-form input.has-padding {
+  padding: 12px 20px 12px 50px;
+}
+#cd-registration .cd-form input.has-padding {
+  padding: 7px 5px 7px 5px;
+}
+
+.cd-form input.has-border {
+  border: 1px solid #d2d8d8;
+}
+.cd-form input.has-border:focus {
+  border-color: #343642;
+  box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
+  outline: none;
+}
+.cd-form input.has-error {
+  border: 1px solid #d76666;
+}
+.cd-form input[type=submit], .cd-form input[type=button]   {
+    -webkit-appearance: none;
+    letter-spacing: 0.08em;
+    padding: 0.8em 1.2em;
+    border: none;
+    outline: none;
+    color: white;
+    text-transform: uppercase;
+    font-family: Roboto;
+    font-weight: bold;
+    background: #0067a7;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.cd-form input[type=submit]:active{
+  box-shadow: 0 3px #999;
+  transform: translateY(3px);
+}
+
+.cd-form input[type=button]:active{
+  box-shadow: 0 3px #999;
+  transform: translateY(3px);
+}
+
+#cd-login, #cd-registration{
+    display: block;
+}
+
+.cd-form .cd-good-message {
+    display: none;
+    margin: 10px;
+    display: inline;
+    background: seagreen;
+    padding: .8em;
+    color: #FFF;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    border-radius: 0.25em;
+}
+
+.cd-form .cd-error-message {
+    margin: 10px;
+    display: inline;
+    background: rgba(215, 102, 102, 1);
+    padding: .8em;
+    color: #FFF;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    border-radius: 0.25em;
+}
+
+.is-hidden {
+    display: none;
+}
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+
+
+/*/////////////////*/
+/*INSPECTOR SECTION*/
+/*/////////////////*/
+table {
+    border-collapse: collapse;
+    margin: 10px;
+    min-width: 60%;
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: #e5f3ff}
+
+canvas {
+    background-color: transparent;
+}
+
+.full_size {
+    width: 100%;
+    height: 100%;
+}
+
+.topright {
+    position: fixed;
+    right: 0px;
+    margin: 0px;
+    padding: 0px;
+    top: 7%;
+    width: 70%;
+    height: 92%;
+    background-color: white;
+    border-left: 2px solid #0067a7;
+}
+
+.topleft {
+    position: absolute;
+    left: 16px;
+    font-size: 18px;
+    top: 7%;
+    width: 30%;
+    height: 93%;
+    margin: 0px;
+    padding: 15px;
+    background-color: white;
+}
+
+.left p,.left div,.topleft button,.topleft label,.topleft input{
+    margin: 10px;
+}
+
+select {
+    margin: 5px;
+    width: 110px;
+    padding: 5px;
+}
+
+select#cloth_type {
+    background-color: white;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+select#note_defective {
+    background-color: white;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+option {
+    font-weight: 600;
+}
+
+label {
+    font-size: 18px;
+}
+
+p {
+    font-size: 18px;
+}
+
+.font_weight {
+    font-weight: bold;
+}
+
+.container {
+  padding: 1em;
+}
+
+@media (max-width: 100000px) {
+  .table-decorator {
+    position: relative;
+  }
+
+  .table-wrapper {
+    overflow-x: scroll;
+  }
+
+  .table-wrapper table {
+    min-width: 780px;
+  }
+
+  .table-decorator:after {
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 0;
+    width: 6em;
+    height: 100%;
+  }
+}
+
+
+.popup {
+  opacity: 0;
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  z-index: 1000000;
+}
+.popup__box {
+  height: 60%;
+  width: 60%;
+  padding: 1em;
+  background: #fff;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  text-align: center;
+  -webkit-transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5);
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5);
+  -webkit-transform: rotate(5deg) translate(-1em, 1em);
+          transform: rotate(5deg) translate(-1em, 1em);
+  border-top: 5px solid #0067a7;
+  border-bottom: 5px solid #0067a7;
+  z-index: 1000000;
+}
+.popup,.popup_box,.popup__box > p{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 30px;
+	vertical-align: baseline
+}
+
+.close_popup {
+    float: left;
+    margin: 5px;
+}
+
+.send_anyway {
+    float: right;
+    margin: 5px;
+}
+
+
+
+
+
+
+
+
+/* Базовый контейнер табов */
+.tabs {
+	min-width: 320px;
+	padding: 0px;
+	margin: 0 auto;
+}
+/* Стили секций с содержанием */
+.tabs>section {
+	display: none;
+	padding: 15px;
+	background: #fff;
+	border-top: 1px solid #ddd;
+}
+.tabs>section>p {
+	margin: 0 0 5px;
+	line-height: 1.5;
+	color: #383838; /* #0067a7*/
+	/* прикрутим анимацию */
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+/* Описываем анимацию свойства opacity */
+
+@-webkit-keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+/* Прячем чекбоксы */
+.tabs>input {
+	display: none;
+	position: absolute;
+}
+/* Стили переключателей вкладок (табов) */
+.tabs>label {
+	display: inline-block;
+	margin: 0 0 -1px;
+	padding: 15px 25px;
+	font-weight: 600;
+	text-align: center;
+	color: #aaa;
+	border: 0px solid #ddd;
+	border-width: 1px 1px 1px 1px;
+	background: #f1f1f1;
+	border-radius: 3px 3px 0 0;
+}
+/* Шрифт-иконки от Font Awesome в формате Unicode */
+.tabs>label:before {
+	font-family: fontawesome;
+	font-weight: normal;
+	margin-right: 10px;
+}
+/* Изменения стиля переключателей вкладок при наведении */
+
+.tabs>label:hover {
+	color: #888;
+	cursor: pointer;
+}
+/* Стили для активной вкладки */
+.tabs>input:checked+label {
+	color: #555;
+	border-top: 1px solid #0067a7;
+	border-bottom: 1px solid #fff;
+	background: #fff;
+}
+
+/* Активация секций с помощью псевдокласса :checked */
+#tab0:checked~#content-tab0, #tab1:checked~#content-tab1, #tab2:checked~#content-tab2, #tab3:checked~#content-tab3, #tab4:checked~#content-tab4, #tab11:checked~#content-tab11, #tab12:checked~#content-tab12,
+ #tab21:checked~#content-tab21, #tab22:checked~#content-tab22, #tab23:checked~#content-tab23{
+	display: block;
+}
+
+
+/* Базовый контейнер табов */
+.inspector-tabs {
+	min-width: 320px;
+	padding: 0px;
+	margin: 0 auto;
+}
+/* Стили секций с содержанием */
+.inspector-tabs>section {
+	display: none;
+	padding: 15px;
+	background: #fff;
+	border-top: 1px solid #ddd;
+}
+.inspector-tabs>section>p {
+	margin: 0 0 5px;
+	line-height: 1.5;
+	color: #383838; /* #0067a7*/
+	/* прикрутим анимацию */
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+/* Описываем анимацию свойства opacity */
+
+@-webkit-keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+/* Прячем чекбоксы */
+.inspector-tabs>input {
+	display: none;
+	position: absolute;
+}
+/* Стили переключателей вкладок (табов) */
+.inspector-tabs>label {
+	display: inline-block;
+	margin: 0 0 -1px;
+	padding: 15px 25px;
+	font-weight: 600;
+	text-align: center;
+	color: #aaa;
+	border: 0px solid #ddd;
+	border-width: 1px 1px 1px 1px;
+	background: #f1f1f1;
+	border-radius: 3px 3px 0 0;
+}
+/* Шрифт-иконки от Font Awesome в формате Unicode */
+.inspector-tabs>label:before {
+	font-family: fontawesome;
+	font-weight: normal;
+	margin-right: 10px;
+}
+/* Изменения стиля переключателей вкладок при наведении */
+
+.inspector-tabs>label:hover {
+	color: #888;
+	cursor: pointer;
+}
+/* Стили для активной вкладки */
+.inspector-tabs>input:checked+label {
+	color: #555;
+	border-top: 1px solid #0067a7;
+	border-bottom: 1px solid #fff;
+	background: #fff;
+}
+
+/* Активация секций с помощью псевдокласса :checked */
+#inspector-tab0:checked~#inspector-content-tab0,
+#inspector-tab1:checked~#inspector-content-tab1,
+#inspector-tab2:checked~#inspector-content-tab2,
+#inspector-tab3:checked~#inspector-content-tab3,
+#inspector-tab4:checked~#inspector-content-tab4,
+#inspector-tab11:checked~#inspector-content-tab11,
+#inspector-tab12:checked~#inspector-content-tab12,
+#inspector-tab21:checked~#inspector-content-tab21,
+#inspector-tab22:checked~#inspector-content-tab22,
+#inspector-tab23:checked~#inspector-content-tab23{
+	display: block;
+}
+
+
+
+
+
+
+.popup-loading {
+  opacity: 0;
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  background: rgba(255,255,255,0.8);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  z-index: 100000000;
+}
+
+
+.highlight_insp {
+    background-color: #e5f3ff;
+}
+
+table tr:first-child > th:not(:first-child) {
+    cursor: s-resize;
+}
+
+table tr:not(:first-child) > th:first-child {
+    cursor: e-resize;
+}
+
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #0067a7;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #0067a7;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+.custom-file-upload {
+  border: 1px dashed #0067a7;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}

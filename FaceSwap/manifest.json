@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "Face Swap",
+    "version": "1.0",
+    "description": "Face Swap From Tardis ",
+    "browser_action": {
+        "default_title": "Tardis Face Swap",
+        "default_icon": "favicon.png",
+        "default_popup": "faceswap.html"
+    },
+    "permissions": [
+        "tabs", "<all_urls>"
+    ],
+    "background" : {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+
+    
+    "content_scripts": [{
+        "css": ["style.css"],
+        "js": ["jquery.js"],
+        "matches": ["https://www.zalando.co.uk/*"]
+      }]
+}
